@@ -1,0 +1,130 @@
+.container-block {
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        // top: -30px;
+        z-index: -1;
+        background: linear-gradient(180deg, #1D1D1D 0%, rgba(0, 0, 0, 0.74) 100%);
+    }
+
+    .first-content {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 45% 55%;
+
+        & > * {
+            align-self: center;
+            justify-self: center;
+        }
+        img {
+            width: 30vw;
+            height: 60vh;
+            scale: 0.3;
+        }
+
+        .text-wrapper {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            position: relative;
+            h2 {
+                font-family: 'Orbitron', sans-serif;
+            }
+            &::after {
+                align-self: center;
+                justify-self: center;
+                content: '';
+                position: absolute;
+                height: 4px;
+                background: white;
+                width: 90%;
+            }
+            color: #fff;
+            & > * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                justify-self: center;
+            }
+            h2 {
+                font-size: 5.3vw;
+                position: relative;
+                overflow: hidden;
+            }
+            .spacer {
+                display: inline-block;
+                opacity: 0;
+                visibility: hidden;
+                font-weight: 400;
+                font-family: 'Orbitron', sans-serif;
+            }
+            .tp {
+                transform: translateY(100%);
+            }
+            .bt {
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    .shallow-content {
+        // z-index: -1;
+        background: white;
+        position: absolute;
+        --increase: 0%;
+        --linear-mask: linear-gradient(to bottom, #fffd73 10%,transparent var(--y));
+        --mask: radial-gradient(circle at var(--x, 50%) var(--y, 50%), #fffd73 var(--increase), transparent 0);
+        -webkit-mask-image: var(--mask);
+        mask-image: var(--mask);
+        top: 0;
+        left: 0;
+        .profile-img {
+            scale: 1;
+            filter: grayscale(100%);
+            mix-blend-mode:difference;
+            --top-left-1:50%;
+            --top-left-2:55%;
+            --top-right-1:25%;
+            --bottom-right-1:50%;
+            --bottom-left-1:25%;
+            --g: 10px; /* the gap */
+            --_m:
+            /* top right part*/
+            linear-gradient(#000 0 0) calc(100% + var(--g)) 0% /calc(var(--top-right-1) + 10.5%) 5%, 
+            linear-gradient(#000 0 0) calc(100% + var(--g)) 8% /calc(var(--top-right-1) + 10.5%) 15%, 
+            linear-gradient(#000 0 0) calc(100% + var(--g)) calc(35.5% - var(--g))/calc(var(--top-right-1) + 10.5%) 25%,
+            /* bottom left part*/
+            linear-gradient(#000 0 0) calc(25% + 9% - var(--g) - 10px) calc(80% + var(--g))/var(--bottom-left-1) 25%,
+            /* Top left part */
+            linear-gradient(#000 0 0) top left/calc(var(--top-left-1) - var(--g) - 7px) 60%,
+            linear-gradient(#000 0 0) top left/calc(var(--top-left-2) ) calc(50% - var(--g) - 10px),
+            /* Bottom right part*/
+            linear-gradient(#000 0 0) bottom right/50% calc(var(--bottom-right-1) - 5%),
+            linear-gradient(#000 0 0) bottom left/calc(var(--bottom-right-1) - 3.5%) 10%,
+            linear-gradient(#000 0 0) 0% 70%/calc(var(--bottom-right-1) - 30%) 10%,
+            linear-gradient(#000 0 0) 0% 85%/calc(var(--bottom-right-1) - 30%) 10%;
+            -webkit-mask: var(--_m);
+                    mask: var(--_m);
+            -webkit-mask-repeat:no-repeat;
+                    mask-repeat:no-repeat;
+        }
+        h2 {
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            mix-blend-mode: difference;
+        }
+        .text-wrapper {
+            &::after {
+            mix-blend-mode: difference;
+            }
+        }
+    }
+}

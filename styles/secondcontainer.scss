@@ -1,0 +1,112 @@
+.second-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.74);
+    cursor: none;
+
+    h4 {
+        position: relative;
+        overflow: hidden;
+        background: orange;
+        .word {
+            display: inline-block;
+            transform: translateX(-150%);
+            opacity: 0;
+        }
+    }
+    .project {
+        position: absolute;
+        top: 5%;
+        left: 2.5%;
+        color: #fff;
+        h2 {
+            position: relative;
+            overflow: hidden;
+        }
+    }
+    .content {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        // background: orange;
+        .main-side {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .circle,canvas {
+                z-index: 2;
+                background: transparent;
+                position: absolute;
+                width: 52.5vw;
+                height: 52.5vw;
+                pointer-events: none;
+                // mix-blend-mode: difference;
+                // left: 18.5%;
+                // border: 2px solid white;
+                border-radius: 50%;
+            }
+        }
+
+        .dragCursor {
+            mix-blend-mode: difference;
+            background: white;
+            color: black;
+            position: absolute;
+            width: 75px;
+            z-index: 30;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            height: 75px;
+            display: flex;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            // transform: translate(-50%,-50%);
+
+        }
+
+        .imgWrapper {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #image-track {
+            display: flex;
+            gap: 2vmin;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 200%;
+            // height: 100%;
+            transform: translate(0%, -50%); 
+            user-select: none; /* -- Prevent image highlighting -- */
+        }
+
+        .image_screen {
+            margin: 0;
+            padding: 0;
+            width: 100vmin;
+            height: 40vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: none;    
+            a {
+                width: 100%;
+                height: 100%;
+            }
+            .image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 100% center;
+            }
+        }
+    }
+}
